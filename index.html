@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AS Agentes - Seguros, Previsión, Futuro</title>
+  <title>Ayala Sánchez - Agente de Seguros</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #121c2d;
-      --bg-darker: #0d1420;
-      --gold: #e8c07d;
-      --gold-hover: #d4ac67;
+      /* Nueva paleta de colores basada en tu identidad */
+      --bg-dark: #002878; /* Azul marino del escudo */
+      --bg-darker: #001a52; 
+      --accent: #0eb1eb; /* Azul claro del banner */
+      --accent-hover: #0b9ad1;
       --text-light: #ffffff;
       --text-dark: #1a1a1a;
       --text-gray: #666666;
@@ -38,8 +39,8 @@
 
     /* Navbar */
     header {
-      background-color: var(--bg-darker);
-      color: var(--text-light);
+      background-color: var(--text-light);
+      color: var(--bg-dark);
       padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
@@ -47,6 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .logo-container {
       display: flex;
@@ -54,31 +56,34 @@
       gap: 15px;
     }
     .logo-container img {
-      height: 40px;
+      height: 50px; /* Tamaño ajustable para tu logo */
     }
     .logo-text h1 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       letter-spacing: 1px;
       margin: 0;
+      color: var(--bg-dark);
     }
     .logo-text span {
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 2px;
-      color: var(--gold);
+      color: var(--accent);
+      font-weight: 600;
     }
     nav { display: flex; gap: 20px; align-items: center; }
     nav a {
-      color: var(--text-light);
+      color: var(--bg-dark);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover { color: var(--gold); }
+    nav a:hover { color: var(--accent); }
     .btn-nav {
-      background-color: var(--gold);
-      color: var(--bg-darker);
+      background-color: var(--accent);
+      color: var(--text-light) !important;
       padding: 10px 20px;
       border-radius: 20px;
       font-weight: 600;
@@ -98,29 +103,30 @@
     .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
     .badge {
       display: inline-block;
-      border: 1px solid rgba(232, 192, 125, 0.4);
+      border: 1px solid var(--accent);
       padding: 5px 15px;
       border-radius: 20px;
       font-size: 0.7rem;
       letter-spacing: 1px;
-      color: var(--gold);
+      color: var(--accent);
       margin-bottom: 20px;
       text-transform: uppercase;
+      font-weight: bold;
     }
     .hero h2 {
-      font-size: 4rem;
-      line-height: 1.1;
+      font-size: 3.5rem;
+      line-height: 1.2;
       margin-bottom: 20px;
       color: var(--text-light);
     }
-    .hero h2 span { color: var(--gold); }
+    .hero h2 span { color: var(--accent); }
     .hero p { margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e1; }
     .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
     .btn-primary {
-      background-color: var(--gold);
-      color: var(--bg-darker);
+      background-color: var(--accent);
+      color: var(--text-light);
       padding: 12px 25px;
-      border-radius: 8px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: 600;
       display: inline-flex;
@@ -128,20 +134,22 @@
       gap: 10px;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    
     .btn-secondary {
       background-color: transparent;
       color: var(--text-light);
       padding: 12px 25px;
-      border-radius: 8px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: 600;
-      border: 1px solid #475569;
+      border: 2px solid var(--accent);
       display: inline-flex;
       align-items: center;
       gap: 10px;
     }
-    .hero-bullets { display: flex; gap: 20px; font-size: 0.8rem; color: #94a3b8; flex-wrap: wrap; }
     
     .hero-image { flex: 1; display: flex; justify-content: center; min-width: 300px; }
     .hero-card {
@@ -150,17 +158,20 @@
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hero-card-tag {
       position: absolute;
       bottom: -15px;
       right: -15px;
-      background: white;
+      background: var(--accent);
       padding: 10px 20px;
       border-radius: 30px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--bg-dark);
+      color: white;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
@@ -168,7 +179,7 @@
     .section-light { background-color: #ffffff; padding: 5rem 5%; }
     .section-header { text-align: center; margin-bottom: 4rem; }
     .section-subtitle {
-      color: var(--gold);
+      color: var(--accent);
       font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 2px;
@@ -189,22 +200,12 @@
       background: var(--bg-light);
       padding: 30px;
       border-radius: 15px;
-      border-top: 4px solid var(--gold);
+      border-top: 4px solid var(--accent);
       transition: transform 0.3s;
     }
     .card-solution:hover { transform: translateY(-5px); }
     .card-solution h3 { font-size: 1.3rem; margin: 15px 0 10px; color: var(--bg-dark); font-family: 'Inter', sans-serif;}
     .card-solution p { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 20px; }
-    .card-solution ul { list-style: none; padding: 0; }
-    .card-solution ul li {
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-      color: var(--bg-dark);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .card-solution ul li::before { content: '✓'; color: var(--gold); font-weight: bold; }
 
     /* Sistema Citas */
     .section-dark { background-color: var(--bg-dark); color: white; padding: 5rem 5%; }
@@ -227,8 +228,8 @@
       gap: 15px;
     }
     .step-num {
-      background: var(--gold);
-      color: var(--bg-dark);
+      background: var(--accent);
+      color: white;
       width: 30px;
       height: 30px;
       border-radius: 50%;
@@ -276,35 +277,6 @@
     .form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
     .form-footer p { font-size: 0.7rem; color: var(--text-gray); max-width: 60%; }
 
-    /* Beneficios */
-    .beneficios-container { display: flex; gap: 50px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; align-items: center; }
-    .ben-card {
-      flex: 1;
-      background: var(--bg-dark);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      min-width: 300px;
-    }
-    .ben-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
-    .stat h4 { color: var(--gold); font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 5px; }
-    .stat p { font-size: 0.8rem; color: #cbd5e1; }
-    
-    .ben-text { flex: 1; min-width: 300px; }
-    .ben-list { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; }
-    .ben-item { display: flex; gap: 15px; }
-    .ben-icon {
-      background: var(--bg-light);
-      width: 25px; height: 25px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-    .ben-item h4 { font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--bg-dark); margin-bottom: 5px; }
-    .ben-item p { font-size: 0.85rem; color: var(--text-gray); }
-
     /* CTA Banner */
     .cta-banner {
       background: var(--bg-dark);
@@ -346,7 +318,7 @@
     
     @media (max-width: 768px) {
       .form-grid { grid-template-columns: 1fr; }
-      nav { display: none; } /* En móvil sugeriría un menú hamburguesa, aquí lo oculto por simplicidad estática */
+      nav { display: none; }
     }
   </style>
 </head>
@@ -355,17 +327,16 @@
   <!-- Encabezado -->
   <header>
     <div class="logo-container">
-      <!-- Reemplaza src con la URL de tu logo escudo -->
-      <img src="https://via.placeholder.com/40x40/121c2d/e8c07d?text=SA" alt="AS Agentes Logo">
+      <!-- AQUÍ VA TU LOGOTIPO -->
+      <img src="logo.png" alt="Ayala Sánchez Logo">
       <div class="logo-text">
-        <h1>AS AGENTES</h1>
-        <span>SEGUROS • PREVISIÓN • FUTURO</span>
+        <h1>AYALA SÁNCHEZ</h1>
+        <span>AGENTE DE SEGUROS</span>
       </div>
     </div>
     <nav>
-      <a href="#soluciones">Soluciones</a>
+      <a href="#soluciones">Seguros</a>
       <a href="#agendar">Agendar cita</a>
-      <a href="#beneficios">Beneficios</a>
       <a href="#contacto">Contacto</a>
       <a href="#agendar" class="btn-nav">Agenda tu asesoría</a>
     </nav>
@@ -374,26 +345,20 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <div class="badge">• ASESORÍA PERSONALIZADA PARA PERSONAS Y EMPRESAS</div>
-      <h2>Protege tu<br>presente.<br><span>Construye tu<br>futuro.</span></h2>
-      <p>En <strong>AS AGENTES</strong> diseñamos estrategias integrales de seguros, protección patrimonial, salud, vida, ahorro, inversión y continuidad empresarial.</p>
+      <div class="badge">• ASESORÍA PERSONALIZADA</div>
+      <h2>Construye un<br>futuro que te<br><span>haga sentir seguro</span></h2>
+      <p>Asesoría patrimonial y diseño de estrategias a tu medida para proteger lo que más importa.</p>
       
       <div class="hero-buttons">
         <a href="#agendar" class="btn-primary">📅 Agendar cita inteligente</a>
-        <a href="https://wa.me/529932078217?text=Hola%20AS%20Agentes,%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa" class="btn-secondary" target="_blank">💬 Hablar por WhatsApp</a>
-      </div>
-      
-      <div class="hero-bullets">
-        <span>♦ Atención personalizada</span>
-        <span>♦ Soluciones para personas y empresas</span>
-        <span>♦ Seguimiento profesional</span>
+        <a href="https://wa.me/529932078217?text=Hola,%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa" class="btn-secondary" target="_blank">💬 Hablar por WhatsApp</a>
       </div>
     </div>
     <div class="hero-image">
       <div class="hero-card">
-        <!-- Reemplaza con tu logo grande -->
-        <img src="https://via.placeholder.com/150x150/121c2d/e8c07d?text=SA" alt="Escudo SA" style="border-radius: 10px;">
-        <div class="hero-card-tag">🛡 Protección estratégica 360°</div>
+        <!-- AQUÍ TAMBIÉN VA TU LOGOTIPO (VERSIÓN GRANDE PARA LA PORTADA) -->
+        <img src="logo.png" alt="Escudo Ayala Sánchez" style="max-width: 250px;">
+        <div class="hero-card-tag">🛡 Protección 360°</div>
       </div>
     </div>
   </section>
@@ -401,58 +366,34 @@
   <!-- Soluciones -->
   <section id="soluciones" class="section-light">
     <div class="section-header">
-      <div class="section-subtitle">Nuestras áreas de especialidad</div>
-      <h2 class="section-title">Una estrategia para cada etapa de tu vida</h2>
+      <div class="section-subtitle">Nuestros Seguros</div>
+      <h2 class="section-title">Una estrategia para cada necesidad</h2>
       <p class="section-desc">Analizamos tu situación, identificamos riesgos y construimos una solución clara, personalizada y alineada con tus metas.</p>
     </div>
     
     <div class="grid-4">
       <div class="card-solution">
-        <div style="font-size: 24px;">🏠</div>
-        <h3>Protección patrimonial</h3>
-        <p>Cuida los bienes que has construido y reduce el impacto financiero de imprevistos.</p>
-        <ul>
-          <li>Seguro de auto</li>
-          <li>Seguro de hogar</li>
-          <li>Seguro para negocio</li>
-          <li>Seguro de transporte</li>
-        </ul>
+        <div style="font-size: 28px; margin-bottom: 10px;">🎓</div>
+        <h3>Vida, ahorro y educación</h3>
+        <p>Garantiza el futuro de tus seres queridos y construye un capital sólido para sus metas más importantes.</p>
       </div>
       
       <div class="card-solution">
-        <div style="font-size: 24px;">❤️</div>
-        <h3>Protección familiar</h3>
-        <p>Respaldo económico para tu familia y acceso a atención médica de calidad.</p>
-        <ul>
-          <li>Seguro de vida</li>
-          <li>Gastos médicos mayores</li>
-          <li>Protección por accidentes</li>
-          <li>Planes familiares</li>
-        </ul>
+        <div style="font-size: 28px; margin-bottom: 10px;">🏥</div>
+        <h3>Gastos Médicos</h3>
+        <p>Acceso a la mejor atención hospitalaria y médica ante cualquier enfermedad o accidente inesperado.</p>
       </div>
 
       <div class="card-solution">
-        <div style="font-size: 24px;">📈</div>
-        <h3>Planeación financiera</h3>
-        <p>Transforma tus ingresos actuales en estabilidad, ahorro y patrimonio futuro.</p>
-        <ul>
-          <li>Planes personales de retiro</li>
-          <li>Ahorro programado</li>
-          <li>Estrategias de inversión</li>
-          <li>Metas financieras</li>
-        </ul>
+        <div style="font-size: 28px; margin-bottom: 10px;">🚗</div>
+        <h3>Autos y motos</h3>
+        <p>Respaldo total para tus vehículos, cubriendo daños materiales, robo y responsabilidad civil.</p>
       </div>
 
       <div class="card-solution">
-        <div style="font-size: 24px;">🏢</div>
-        <h3>Estrategias empresariales</h3>
-        <p>Protege la operación, el talento y la continuidad de tu empresa.</p>
-        <ul>
-          <li>Seguros para colaboradores</li>
-          <li>Responsabilidad civil</li>
-          <li>Protección del negocio</li>
-          <li>Continuidad empresarial</li>
-        </ul>
+        <div style="font-size: 28px; margin-bottom: 10px;">🏡</div>
+        <h3>Hogar y mascotas</h3>
+        <p>Tranquilidad para tu patrimonio familiar y cobertura integral para los peludos de la casa.</p>
       </div>
     </div>
   </section>
@@ -461,35 +402,35 @@
   <section id="agendar" class="section-dark">
     <div class="citas-container">
       <div class="citas-info">
-        <div class="section-subtitle">SISTEMA INTELIGENTE DE CITAS</div>
-        <h2 class="section-title" style="font-size: 2.5rem;">Agenda la asesoría<br>ideal para ti</h2>
-        <p style="color: #cbd5e1; margin-bottom: 30px;">El sistema identifica tu necesidad principal, recomienda el tipo de asesoría y prepara tu solicitud para enviarla directamente por WhatsApp.</p>
+        <div class="section-subtitle" style="color: white;">SISTEMA INTELIGENTE DE CITAS</div>
+        <h2 class="section-title" style="font-size: 2.5rem; color: white;">Agenda la asesoría<br>ideal para ti</h2>
+        <p style="color: #cbd5e1; margin-bottom: 30px;">El sistema prepara tu solicitud para enviarla directamente por WhatsApp.</p>
         
         <div class="step-box">
           <div class="step-num">1</div>
           <div>
             <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Cuéntanos qué necesitas</h4>
-            <p style="font-size: 0.8rem; color: #94a3b8;">Selecciona el área de interés y tu perfil.</p>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Selecciona el área de interés.</p>
           </div>
         </div>
         <div class="step-box">
           <div class="step-num">2</div>
           <div>
             <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Elige fecha y horario</h4>
-            <p style="font-size: 0.8rem; color: #94a3b8;">Visualiza horarios sugeridos y selecciona el más conveniente.</p>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Selecciona el momento más conveniente.</p>
           </div>
         </div>
         <div class="step-box">
           <div class="step-num">3</div>
           <div>
             <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Confirma por WhatsApp</h4>
-            <p style="font-size: 0.8rem; color: #94a3b8;">Tu solicitud se genera lista para enviar a AS AGENTES.</p>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Tu solicitud se enviará a nuestro chat oficial.</p>
           </div>
         </div>
       </div>
 
       <div class="citas-form">
-        <h3>Nueva cita <span class="badge-form">✨ Recomendación Inteligente</span></h3>
+        <h3>Nueva cita</h3>
         
         <div class="form-grid">
           <div class="form-group">
@@ -497,25 +438,17 @@
             <input type="text" id="citaNombre" placeholder="Tu nombre">
           </div>
           <div class="form-group">
-            <label>Teléfono / WhatsApp</label>
+            <label>Teléfono</label>
             <input type="tel" id="citaTel" placeholder="10 dígitos">
           </div>
-          <div class="form-group">
-            <label>Tipo de cliente</label>
-            <select id="citaTipo">
-              <option value="">Selecciona</option>
-              <option value="Persona">Persona</option>
-              <option value="Empresa">Empresa</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Área de interés</label>
+          <div class="form-group" style="grid-column: span 2;">
+            <label>¿Qué seguro te interesa?</label>
             <select id="citaInteres">
-              <option value="">Selecciona</option>
-              <option value="Patrimonial">Protección Patrimonial</option>
-              <option value="Familiar">Protección Familiar</option>
-              <option value="Financiera">Planeación Financiera</option>
-              <option value="Empresarial">Estrategias Empresariales</option>
+              <option value="">Selecciona una opción</option>
+              <option value="Vida, ahorro y educación">Vida, ahorro y educación</option>
+              <option value="Gastos Médicos">Gastos Médicos</option>
+              <option value="Autos y motos">Autos y motos</option>
+              <option value="Hogar y mascotas">Hogar y mascotas</option>
             </select>
           </div>
         </div>
@@ -539,11 +472,6 @@
           </div>
         </div>
 
-        <div class="form-group" style="margin-top: 10px;">
-          <label>¿Qué te gustaría proteger o lograr?</label>
-          <textarea id="citaNotas" rows="2" placeholder="Ejemplo: proteger a mi familia, asegurar mi negocio, iniciar un plan de retiro..."></textarea>
-        </div>
-
         <div class="form-footer">
           <p>Tus datos se usarán únicamente para dar seguimiento a tu solicitud.</p>
           <button type="button" onclick="enviarWhatsAppCita()" class="btn-primary">Confirmar cita →</button>
@@ -552,79 +480,15 @@
     </div>
   </section>
 
-  <!-- Beneficios -->
-  <section id="beneficios" class="section-light">
-    <div class="beneficios-container">
-      <div class="ben-card">
-        <div class="section-subtitle" style="color:var(--gold);">VISIÓN INTEGRAL</div>
-        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Más que una póliza: una estrategia.</h2>
-        
-        <div class="ben-stats">
-          <div class="stat">
-            <h4>4</h4>
-            <p>Áreas estratégicas</p>
-          </div>
-          <div class="stat">
-            <h4>360°</h4>
-            <p>Protección integral</p>
-          </div>
-          <div class="stat">
-            <h4>1 a 1</h4>
-            <p>Asesoría personalizada</p>
-          </div>
-          <div class="stat">
-            <h4>24/7</h4>
-            <p>Solicitud de citas en línea</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ben-text">
-        <div class="section-subtitle">POR QUÉ ELEGIR AS AGENTES</div>
-        <h2 class="section-title" style="font-size: 2.2rem;">Decisiones financieras con mayor claridad</h2>
-        <p class="section-desc" style="margin:0;">No se trata de contratar por contratar. Se trata de entender riesgos, prioridades y objetivos para construir una protección realmente útil.</p>
-        
-        <div class="ben-list">
-          <div class="ben-item">
-            <div class="ben-icon">✓</div>
-            <div>
-              <h4>Diagnóstico personalizado</h4>
-              <p>Revisamos tu situación y te ayudamos a priorizar lo realmente importante.</p>
-            </div>
-          </div>
-          <div class="ben-item">
-            <div class="ben-icon">✓</div>
-            <div>
-              <h4>Soluciones claras y comparables</h4>
-              <p>Explicación sencilla para que tomes decisiones con confianza.</p>
-            </div>
-          </div>
-          <div class="ben-item">
-            <div class="ben-icon">✓</div>
-            <div>
-              <h4>Seguimiento profesional</h4>
-              <p>Acompañamiento antes, durante y después de contratar.</p>
-            </div>
-          </div>
-          <div class="ben-item">
-            <div class="ben-icon">✓</div>
-            <div>
-              <h4>Visión de largo plazo</h4>
-              <p>Protección y planeación alineadas con tus metas personales o empresariales.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA Banner -->
-    <div id="contacto" class="cta-banner">
+  <!-- CTA Banner -->
+  <section id="contacto" style="background-color: var(--bg-light); padding: 1px;">
+    <div class="cta-banner">
       <div>
         <h2>Tu tranquilidad comienza con una<br>buena decisión.</h2>
         <p>Agenda una asesoría o escríbenos directamente por WhatsApp.</p>
       </div>
       <div>
-        <a href="https://wa.me/529932078217?text=Hola%20AS%20Agentes,%20me%20interesa%20iniciar%20mi%20tranquilidad%20con%20ustedes" class="btn-primary" style="font-size: 1.1rem; padding: 15px 30px;" target="_blank">
+        <a href="https://wa.me/529932078217?text=Hola,%20me%20interesa%20iniciar%20mi%20tranquilidad%20con%20ustedes" class="btn-primary" style="font-size: 1.1rem; padding: 15px 30px; background-color: white; color: var(--bg-dark);" target="_blank">
           💬 WhatsApp 993 207 8217
         </a>
       </div>
@@ -637,18 +501,18 @@
       <div>
         <div class="logo-container" style="margin-bottom: 20px;">
           <div class="logo-text">
-            <h1 style="color: white;">AS AGENTES</h1>
-            <span>SEGUROS • PREVISIÓN • FUTURO</span>
+            <h1 style="color: white;">AYALA SÁNCHEZ</h1>
+            <span>AGENTE DE SEGUROS</span>
           </div>
         </div>
-        <p style="max-width: 300px;">Protección patrimonial, familiar, planeación financiera y estrategias empresariales diseñadas a tu medida.</p>
+        <p style="max-width: 300px;">Construye un futuro que te haga sentir seguro. Asesoría personalizada a tu medida.</p>
       </div>
       <div class="footer-links">
-        <h4>Soluciones</h4>
-        <p>Protección patrimonial</p>
-        <p>Protección familiar</p>
-        <p>Planeación financiera</p>
-        <p>Estrategias para empresas</p>
+        <h4>Seguros</h4>
+        <p>Vida, ahorro y educación</p>
+        <p>Gastos Médicos</p>
+        <p>Autos y motos</p>
+        <p>Hogar y mascotas</p>
       </div>
       <div class="footer-links">
         <h4>Contacto</h4>
@@ -657,62 +521,47 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 AS AGENTES. Todos los derechos reservados.</p>
-      <p>Seguros • Protección • Planeación financiera</p>
+      <p>&copy; 2026 AYALA SÁNCHEZ. Todos los derechos reservados.</p>
+      <p>Agente de Seguros Autorizado</p>
     </div>
   </footer>
 
   <!-- Botón Flotante WhatsApp -->
-  <a href="https://wa.me/529932078217?text=Hola%20Sergio,%20estoy%20en%20tu%20sitio%20web%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/529932078217?text=Hola,%20estoy%20en%20tu%20sitio%20web%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="whatsapp-float" target="_blank">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
     </svg>
   </a>
 
-  <!-- Lógica Javascript para Citas a WhatsApp -->
   <script>
-    // Manejar selección de botones de horario
     function selectTime(button, timeStr) {
-      // Remover clase activa de todos los botones
       document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('active'));
-      // Agregar clase activa al presionado
       button.classList.add('active');
-      // Guardar el valor oculto
       document.getElementById('citaHora').value = timeStr;
     }
 
-    // Recolectar datos y enviar a WhatsApp
     function enviarWhatsAppCita() {
       const nombre = document.getElementById('citaNombre').value.trim();
       const tel = document.getElementById('citaTel').value.trim();
-      const tipo = document.getElementById('citaTipo').value;
       const interes = document.getElementById('citaInteres').value;
       const fecha = document.getElementById('citaFecha').value;
       const hora = document.getElementById('citaHora').value;
-      const notas = document.getElementById('citaNotas').value.trim();
 
       if(!nombre || !fecha || !hora) {
         alert('Por favor completa al menos tu nombre, fecha y selecciona un horario.');
         return;
       }
 
-      // Construir el mensaje
       let texto = `*NUEVA SOLICITUD DE ASESORÍA*%0A%0A`;
       texto += `👤 *Nombre:* ${nombre}%0A`;
       if(tel) texto += `📱 *Teléfono:* ${tel}%0A`;
-      if(tipo) texto += `🏢 *Perfil:* ${tipo}%0A`;
       if(interes) texto += `🎯 *Interés:* ${interes}%0A`;
-      texto += `📅 *Fecha solicitada:* ${fecha}%0A`;
+      texto += `📅 *Fecha:* ${fecha}%0A`;
       texto += `⏰ *Horario:* ${hora}%0A`;
-      if(notas) texto += `📝 *Detalles:* ${notas}%0A`;
-      
-      texto += `%0A_Enviado desde el Sistema Inteligente de Citas AS Agentes_`;
+      texto += `%0A_Enviado desde el sitio web Ayala Sánchez_`;
 
-      // Número destino (Tu WhatsApp personal/business)
       const numero = '529932078217'; 
       const url = `https://wa.me/${numero}?text=${texto}`;
-
-      // Abrir en nueva pestaña
       window.open(url, '_blank');
     }
   </script>

@@ -3,179 +3,718 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AS Agentes - Seguros</title>
+  <title>AS Agentes - Seguros, Previsión, Futuro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Diseño Base */
     :root {
-      --primary: #004488;
-      --secondary: #0066cc;
-      --light: #f8f9fa;
-      --dark: #212529;
-    }
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--dark);
-      background-color: var(--light);
-      line-height: 1.6;
+      --bg-dark: #121c2d;
+      --bg-darker: #0d1420;
+      --gold: #e8c07d;
+      --gold-hover: #d4ac67;
+      --text-light: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-gray: #666666;
+      --bg-light: #f8f9fc;
     }
     
-    /* Navegación */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Navbar */
     header {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--bg-darker);
+      color: var(--text-light);
       padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
-    header h1 { margin: 0; font-size: 1.5rem; }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo-container img {
+      height: 40px;
+    }
+    .logo-text h1 {
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+    .logo-text span {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+    nav { display: flex; gap: 20px; align-items: center; }
     nav a {
-      color: white;
+      color: var(--text-light);
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      transition: color 0.3s;
     }
-    nav a:hover { opacity: 0.8; }
+    nav a:hover { color: var(--gold); }
+    .btn-nav {
+      background-color: var(--gold);
+      color: var(--bg-darker);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-    /* Sección Principal (Hero) */
+    /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 5rem 5%;
-      text-align: center;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 6rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
-    .hero h2 { font-size: 2.8rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
-
-    /* Contenedor y Tarjetas */
-    .container {
-      padding: 3rem 5%;
-      max-width: 1200px;
-      margin: auto;
+    .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(232, 192, 125, 0.4);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
-    .section-title {
-      text-align: center;
-      color: var(--primary);
-      margin-bottom: 2rem;
-      font-size: 2rem;
+    .hero h2 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text-light);
     }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+    .hero h2 span { color: var(--gold); }
+    .hero p { margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e1; }
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
+    .btn-primary {
+      background-color: var(--gold);
+      color: var(--bg-darker);
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
     }
-    .card {
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-light);
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #475569;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-bullets { display: flex; gap: 20px; font-size: 0.8rem; color: #94a3b8; flex-wrap: wrap; }
+    
+    .hero-image { flex: 1; display: flex; justify-content: center; min-width: 300px; }
+    .hero-card {
       background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .hero-card-tag {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--bg-dark);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Soluciones */
+    .section-light { background-color: #ffffff; padding: 5rem 5%; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-subtitle {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .section-title { font-size: 2.8rem; color: var(--bg-dark); margin-bottom: 15px; }
+    .section-desc { color: var(--text-gray); max-width: 600px; margin: 0 auto; }
+    
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card-solution {
+      background: var(--bg-light);
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border-top: 4px solid var(--secondary);
+      border-radius: 15px;
+      border-top: 4px solid var(--gold);
+      transition: transform 0.3s;
+    }
+    .card-solution:hover { transform: translateY(-5px); }
+    .card-solution h3 { font-size: 1.3rem; margin: 15px 0 10px; color: var(--bg-dark); font-family: 'Inter', sans-serif;}
+    .card-solution p { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 20px; }
+    .card-solution ul { list-style: none; padding: 0; }
+    .card-solution ul li {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      color: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-solution ul li::before { content: '✓'; color: var(--gold); font-weight: bold; }
+
+    /* Sistema Citas */
+    .section-dark { background-color: var(--bg-dark); color: white; padding: 5rem 5%; }
+    .citas-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .citas-info { flex: 1; min-width: 300px; }
+    .citas-info .section-title { color: white; text-align: left; margin-bottom: 20px; }
+    .step-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+    }
+    .step-num {
+      background: var(--gold);
+      color: var(--bg-dark);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
     }
     
-    /* Contacto y Footer */
-    .contact {
-      background-color: white;
-      padding: 3rem;
-      border-radius: 10px;
-      margin-top: 3rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    .citas-form {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      color: var(--text-dark);
+      min-width: 350px;
     }
-    footer {
-      background-color: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 2rem;
+    .citas-form h3 { font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 20px; display: flex; justify-content: space-between;}
+    .badge-form { font-size: 0.7rem; background: var(--bg-light); color: var(--bg-dark); padding: 5px 10px; border-radius: 10px; font-weight: normal; }
+    
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--bg-dark); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: inherit;
+      width: 100%;
     }
+    
+    .time-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .time-btn {
+      padding: 10px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .time-btn.active { background: var(--bg-dark); color: white; border-color: var(--bg-dark); }
+    
+    .form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+    .form-footer p { font-size: 0.7rem; color: var(--text-gray); max-width: 60%; }
 
-    /* Botón Flotante de WhatsApp */
+    /* Beneficios */
+    .beneficios-container { display: flex; gap: 50px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; align-items: center; }
+    .ben-card {
+      flex: 1;
+      background: var(--bg-dark);
+      color: white;
+      padding: 50px;
+      border-radius: 20px;
+      min-width: 300px;
+    }
+    .ben-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+    .stat h4 { color: var(--gold); font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 5px; }
+    .stat p { font-size: 0.8rem; color: #cbd5e1; }
+    
+    .ben-text { flex: 1; min-width: 300px; }
+    .ben-list { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; }
+    .ben-item { display: flex; gap: 15px; }
+    .ben-icon {
+      background: var(--bg-light);
+      width: 25px; height: 25px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .ben-item h4 { font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--bg-dark); margin-bottom: 5px; }
+    .ben-item p { font-size: 0.85rem; color: var(--text-gray); }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: var(--bg-dark);
+      border-radius: 20px;
+      padding: 4rem 5%;
+      margin: 4rem auto;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+    }
+    .cta-banner h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    
+    /* Footer */
+    footer { background: var(--bg-darker); color: #94a3b8; padding: 4rem 5% 2rem; font-size: 0.85rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #1e293b; padding-bottom: 2rem; margin-bottom: 2rem; }
+    .footer-grid h4 { color: white; font-family: 'Inter', sans-serif; margin-bottom: 15px; }
+    .footer-links p { margin-bottom: 10px; }
+    .footer-bottom { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+
+    /* WhatsApp Flotante */
     .whatsapp-float {
       position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 40px;
-      right: 40px;
+      width: 55px; height: 55px;
+      bottom: 30px; right: 30px;
       background-color: #25d366;
       color: #FFF;
       border-radius: 50px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       text-decoration: none;
       transition: transform 0.3s ease;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-    .whatsapp-icon {
-      width: 35px;
-      height: 35px;
-      fill: white;
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+    
+    @media (max-width: 768px) {
+      .form-grid { grid-template-columns: 1fr; }
+      nav { display: none; } /* En móvil sugeriría un menú hamburguesa, aquí lo oculto por simplicidad estática */
     }
   </style>
 </head>
 <body>
 
+  <!-- Encabezado -->
   <header>
-    <h1>AS Agentes</h1>
+    <div class="logo-container">
+      <!-- Reemplaza src con la URL de tu logo escudo -->
+      <img src="https://via.placeholder.com/40x40/121c2d/e8c07d?text=SA" alt="AS Agentes Logo">
+      <div class="logo-text">
+        <h1>AS AGENTES</h1>
+        <span>SEGUROS • PREVISIÓN • FUTURO</span>
+      </div>
+    </div>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#agendar">Agendar cita</a>
+      <a href="#beneficios">Beneficios</a>
       <a href="#contacto">Contacto</a>
+      <a href="#agendar" class="btn-nav">Agenda tu asesoría</a>
     </nav>
   </header>
 
-  <section id="inicio" class="hero">
-    <h2>Tranquilidad y Respaldo para tu Futuro</h2>
-    <p>Soy Sergio Armando Ayala Sánchez, tu asesor patrimonial de confianza. Protegiendo lo que más valoras.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">• ASESORÍA PERSONALIZADA PARA PERSONAS Y EMPRESAS</div>
+      <h2>Protege tu<br>presente.<br><span>Construye tu<br>futuro.</span></h2>
+      <p>En <strong>AS AGENTES</strong> diseñamos estrategias integrales de seguros, protección patrimonial, salud, vida, ahorro, inversión y continuidad empresarial.</p>
+      
+      <div class="hero-buttons">
+        <a href="#agendar" class="btn-primary">📅 Agendar cita inteligente</a>
+        <a href="https://wa.me/529932078217?text=Hola%20AS%20Agentes,%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa" class="btn-secondary" target="_blank">💬 Hablar por WhatsApp</a>
+      </div>
+      
+      <div class="hero-bullets">
+        <span>♦ Atención personalizada</span>
+        <span>♦ Soluciones para personas y empresas</span>
+        <span>♦ Seguimiento profesional</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-card">
+        <!-- Reemplaza con tu logo grande -->
+        <img src="https://via.placeholder.com/150x150/121c2d/e8c07d?text=SA" alt="Escudo SA" style="border-radius: 10px;">
+        <div class="hero-card-tag">🛡 Protección estratégica 360°</div>
+      </div>
+    </div>
   </section>
 
-  <div class="container">
-    <section id="servicios">
-      <h2 class="section-title">Soluciones a tu Medida</h2>
-      <div class="services">
-        <div class="card">
-          <h3>Seguros de Vida</h3>
-          <p>Estrategias diseñadas para garantizar la estabilidad económica de tu familia pase lo que pase.</p>
+  <!-- Soluciones -->
+  <section id="soluciones" class="section-light">
+    <div class="section-header">
+      <div class="section-subtitle">Nuestras áreas de especialidad</div>
+      <h2 class="section-title">Una estrategia para cada etapa de tu vida</h2>
+      <p class="section-desc">Analizamos tu situación, identificamos riesgos y construimos una solución clara, personalizada y alineada con tus metas.</p>
+    </div>
+    
+    <div class="grid-4">
+      <div class="card-solution">
+        <div style="font-size: 24px;">🏠</div>
+        <h3>Protección patrimonial</h3>
+        <p>Cuida los bienes que has construido y reduce el impacto financiero de imprevistos.</p>
+        <ul>
+          <li>Seguro de auto</li>
+          <li>Seguro de hogar</li>
+          <li>Seguro para negocio</li>
+          <li>Seguro de transporte</li>
+        </ul>
+      </div>
+      
+      <div class="card-solution">
+        <div style="font-size: 24px;">❤️</div>
+        <h3>Protección familiar</h3>
+        <p>Respaldo económico para tu familia y acceso a atención médica de calidad.</p>
+        <ul>
+          <li>Seguro de vida</li>
+          <li>Gastos médicos mayores</li>
+          <li>Protección por accidentes</li>
+          <li>Planes familiares</li>
+        </ul>
+      </div>
+
+      <div class="card-solution">
+        <div style="font-size: 24px;">📈</div>
+        <h3>Planeación financiera</h3>
+        <p>Transforma tus ingresos actuales en estabilidad, ahorro y patrimonio futuro.</p>
+        <ul>
+          <li>Planes personales de retiro</li>
+          <li>Ahorro programado</li>
+          <li>Estrategias de inversión</li>
+          <li>Metas financieras</li>
+        </ul>
+      </div>
+
+      <div class="card-solution">
+        <div style="font-size: 24px;">🏢</div>
+        <h3>Estrategias empresariales</h3>
+        <p>Protege la operación, el talento y la continuidad de tu empresa.</p>
+        <ul>
+          <li>Seguros para colaboradores</li>
+          <li>Responsabilidad civil</li>
+          <li>Protección del negocio</li>
+          <li>Continuidad empresarial</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sistema Inteligente de Citas -->
+  <section id="agendar" class="section-dark">
+    <div class="citas-container">
+      <div class="citas-info">
+        <div class="section-subtitle">SISTEMA INTELIGENTE DE CITAS</div>
+        <h2 class="section-title" style="font-size: 2.5rem;">Agenda la asesoría<br>ideal para ti</h2>
+        <p style="color: #cbd5e1; margin-bottom: 30px;">El sistema identifica tu necesidad principal, recomienda el tipo de asesoría y prepara tu solicitud para enviarla directamente por WhatsApp.</p>
+        
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div>
+            <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Cuéntanos qué necesitas</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Selecciona el área de interés y tu perfil.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Gastos Médicos Mayores</h3>
-          <p>Acceso a la mejor atención médica en los momentos críticos sin comprometer tu patrimonio.</p>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div>
+            <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Elige fecha y horario</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Visualiza horarios sugeridos y selecciona el más conveniente.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Planes de Retiro</h3>
-          <p>Proyecta y construye desde hoy el capital que te permitirá disfrutar tu futuro con independencia.</p>
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <div>
+            <h4 style="font-family: 'Inter'; font-size: 1rem; color: white;">Confirma por WhatsApp</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Tu solicitud se genera lista para enviar a AS AGENTES.</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section id="contacto" class="contact">
-      <h2 class="section-title">Contáctame</h2>
-      <p><strong>Oficina Principal:</strong> Villahermosa, Tabasco</p>
-      <p><strong>Atención Regional:</strong> Paraíso, Comalcalco, Cunduacán, Jalpa, Nacajuca, Tuxtla Gutiérrez, San Cristóbal y Palenque.</p>
-      <p><strong>Correo:</strong> sergio.sa284@gmail.com</p>
-    </section>
-  </div>
+      <div class="citas-form">
+        <h3>Nueva cita <span class="badge-form">✨ Recomendación Inteligente</span></h3>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" id="citaNombre" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label>Teléfono / WhatsApp</label>
+            <input type="tel" id="citaTel" placeholder="10 dígitos">
+          </div>
+          <div class="form-group">
+            <label>Tipo de cliente</label>
+            <select id="citaTipo">
+              <option value="">Selecciona</option>
+              <option value="Persona">Persona</option>
+              <option value="Empresa">Empresa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Área de interés</label>
+            <select id="citaInteres">
+              <option value="">Selecciona</option>
+              <option value="Patrimonial">Protección Patrimonial</option>
+              <option value="Familiar">Protección Familiar</option>
+              <option value="Financiera">Planeación Financiera</option>
+              <option value="Empresarial">Estrategias Empresariales</option>
+            </select>
+          </div>
+        </div>
 
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" id="citaFecha">
+          </div>
+          <div class="form-group">
+            <label>Horario disponible</label>
+            <div class="time-grid" id="timeGrid">
+              <button class="time-btn" type="button" onclick="selectTime(this, '09:00 AM')">09:00 AM</button>
+              <button class="time-btn" type="button" onclick="selectTime(this, '10:30 AM')">10:30 AM</button>
+              <button class="time-btn" type="button" onclick="selectTime(this, '12:00 PM')">12:00 PM</button>
+              <button class="time-btn" type="button" onclick="selectTime(this, '04:00 PM')">04:00 PM</button>
+              <button class="time-btn" type="button" onclick="selectTime(this, '05:30 PM')">05:30 PM</button>
+              <button class="time-btn" type="button" onclick="selectTime(this, '07:00 PM')">07:00 PM</button>
+            </div>
+            <input type="hidden" id="citaHora" value="">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
+          <label>¿Qué te gustaría proteger o lograr?</label>
+          <textarea id="citaNotas" rows="2" placeholder="Ejemplo: proteger a mi familia, asegurar mi negocio, iniciar un plan de retiro..."></textarea>
+        </div>
+
+        <div class="form-footer">
+          <p>Tus datos se usarán únicamente para dar seguimiento a tu solicitud.</p>
+          <button type="button" onclick="enviarWhatsAppCita()" class="btn-primary">Confirmar cita →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section id="beneficios" class="section-light">
+    <div class="beneficios-container">
+      <div class="ben-card">
+        <div class="section-subtitle" style="color:var(--gold);">VISIÓN INTEGRAL</div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Más que una póliza: una estrategia.</h2>
+        
+        <div class="ben-stats">
+          <div class="stat">
+            <h4>4</h4>
+            <p>Áreas estratégicas</p>
+          </div>
+          <div class="stat">
+            <h4>360°</h4>
+            <p>Protección integral</p>
+          </div>
+          <div class="stat">
+            <h4>1 a 1</h4>
+            <p>Asesoría personalizada</p>
+          </div>
+          <div class="stat">
+            <h4>24/7</h4>
+            <p>Solicitud de citas en línea</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ben-text">
+        <div class="section-subtitle">POR QUÉ ELEGIR AS AGENTES</div>
+        <h2 class="section-title" style="font-size: 2.2rem;">Decisiones financieras con mayor claridad</h2>
+        <p class="section-desc" style="margin:0;">No se trata de contratar por contratar. Se trata de entender riesgos, prioridades y objetivos para construir una protección realmente útil.</p>
+        
+        <div class="ben-list">
+          <div class="ben-item">
+            <div class="ben-icon">✓</div>
+            <div>
+              <h4>Diagnóstico personalizado</h4>
+              <p>Revisamos tu situación y te ayudamos a priorizar lo realmente importante.</p>
+            </div>
+          </div>
+          <div class="ben-item">
+            <div class="ben-icon">✓</div>
+            <div>
+              <h4>Soluciones claras y comparables</h4>
+              <p>Explicación sencilla para que tomes decisiones con confianza.</p>
+            </div>
+          </div>
+          <div class="ben-item">
+            <div class="ben-icon">✓</div>
+            <div>
+              <h4>Seguimiento profesional</h4>
+              <p>Acompañamiento antes, durante y después de contratar.</p>
+            </div>
+          </div>
+          <div class="ben-item">
+            <div class="ben-icon">✓</div>
+            <div>
+              <h4>Visión de largo plazo</h4>
+              <p>Protección y planeación alineadas con tus metas personales o empresariales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div id="contacto" class="cta-banner">
+      <div>
+        <h2>Tu tranquilidad comienza con una<br>buena decisión.</h2>
+        <p>Agenda una asesoría o escríbenos directamente por WhatsApp.</p>
+      </div>
+      <div>
+        <a href="https://wa.me/529932078217?text=Hola%20AS%20Agentes,%20me%20interesa%20iniciar%20mi%20tranquilidad%20con%20ustedes" class="btn-primary" style="font-size: 1.1rem; padding: 15px 30px;" target="_blank">
+          💬 WhatsApp 993 207 8217
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 AS Agentes. Todos los derechos reservados.</p>
+    <div class="footer-grid">
+      <div>
+        <div class="logo-container" style="margin-bottom: 20px;">
+          <div class="logo-text">
+            <h1 style="color: white;">AS AGENTES</h1>
+            <span>SEGUROS • PREVISIÓN • FUTURO</span>
+          </div>
+        </div>
+        <p style="max-width: 300px;">Protección patrimonial, familiar, planeación financiera y estrategias empresariales diseñadas a tu medida.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Soluciones</h4>
+        <p>Protección patrimonial</p>
+        <p>Protección familiar</p>
+        <p>Planeación financiera</p>
+        <p>Estrategias para empresas</p>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <p>WhatsApp: 993 207 8217</p>
+        <p>Atención con cita previa</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AS AGENTES. Todos los derechos reservados.</p>
+      <p>Seguros • Protección • Planeación financiera</p>
+    </div>
   </footer>
 
-  <!-- Botón flotante de WhatsApp con tu número 9932078217 -->
-  <a href="https://wa.me/529932078217?text=Hola%20Sergio,%20me%20interesa%20una%20asesor%C3%ADa%20sobre%20seguros" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-      <!-- Icono de WhatsApp en formato SVG (optimizado para carga rápida) -->
+  <!-- Botón Flotante WhatsApp -->
+  <a href="https://wa.me/529932078217?text=Hola%20Sergio,%20estoy%20en%20tu%20sitio%20web%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="whatsapp-float" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
     </svg>
   </a>
 
+  <!-- Lógica Javascript para Citas a WhatsApp -->
+  <script>
+    // Manejar selección de botones de horario
+    function selectTime(button, timeStr) {
+      // Remover clase activa de todos los botones
+      document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('active'));
+      // Agregar clase activa al presionado
+      button.classList.add('active');
+      // Guardar el valor oculto
+      document.getElementById('citaHora').value = timeStr;
+    }
+
+    // Recolectar datos y enviar a WhatsApp
+    function enviarWhatsAppCita() {
+      const nombre = document.getElementById('citaNombre').value.trim();
+      const tel = document.getElementById('citaTel').value.trim();
+      const tipo = document.getElementById('citaTipo').value;
+      const interes = document.getElementById('citaInteres').value;
+      const fecha = document.getElementById('citaFecha').value;
+      const hora = document.getElementById('citaHora').value;
+      const notas = document.getElementById('citaNotas').value.trim();
+
+      if(!nombre || !fecha || !hora) {
+        alert('Por favor completa al menos tu nombre, fecha y selecciona un horario.');
+        return;
+      }
+
+      // Construir el mensaje
+      let texto = `*NUEVA SOLICITUD DE ASESORÍA*%0A%0A`;
+      texto += `👤 *Nombre:* ${nombre}%0A`;
+      if(tel) texto += `📱 *Teléfono:* ${tel}%0A`;
+      if(tipo) texto += `🏢 *Perfil:* ${tipo}%0A`;
+      if(interes) texto += `🎯 *Interés:* ${interes}%0A`;
+      texto += `📅 *Fecha solicitada:* ${fecha}%0A`;
+      texto += `⏰ *Horario:* ${hora}%0A`;
+      if(notas) texto += `📝 *Detalles:* ${notas}%0A`;
+      
+      texto += `%0A_Enviado desde el Sistema Inteligente de Citas AS Agentes_`;
+
+      // Número destino (Tu WhatsApp personal/business)
+      const numero = '529932078217'; 
+      const url = `https://wa.me/${numero}?text=${texto}`;
+
+      // Abrir en nueva pestaña
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
